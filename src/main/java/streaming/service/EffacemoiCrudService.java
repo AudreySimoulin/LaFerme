@@ -5,20 +5,14 @@
  */
 package streaming.service;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
+import java.io.Serializable;
+import org.springframework.data.repository.CrudRepository;
+import streaming.entity.Effacemoi;
 
 /**
  *
  * @author tom
  */
-@Service("cracouille")
-public class MyService {
-
-    @Override
-    public String toString() {
-        return "MyService";
-    }
-    
+public interface EffacemoiCrudService extends CrudRepository<Effacemoi, Long>{
     
 }

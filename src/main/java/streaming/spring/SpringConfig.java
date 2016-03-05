@@ -23,25 +23,19 @@ import org.springframework.transaction.PlatformTransactionManager;
 //@SpringBootApplication
 //@EnableAutoConfiguration
 @ComponentScan(basePackages = "streaming") 
-//@EnableJpaRepositories(basePackages = "streaming")
+@EnableJpaRepositories(basePackages = "streaming")
 public class SpringConfig {
 
     @Bean
-    public String tommyLee(){
-        
-        return "YO MAN !";
+    public PlatformTransactionManager transactionManager() {
+        JpaTransactionManager txManager = new JpaTransactionManager();
+        txManager.setEntityManagerFactory(entityManagerFactory());
+        return txManager;
     }
-    
-//    @Bean
-//    public PlatformTransactionManager transactionManager() {
-//        JpaTransactionManager txManager = new JpaTransactionManager();
-//        txManager.setEntityManagerFactory(entityManagerFactory());
-//        return txManager;
-//    }
-//
-//    @Bean
-//    public EntityManagerFactory entityManagerFactory() {
-//        return Persistence.createEntityManagerFactory("streaming_PU");
-//    }
+
+    @Bean
+    public EntityManagerFactory entityManagerFactory() {
+        return Persistence.createEntityManagerFactory("streaming_PU");
+    }
 
 }
