@@ -12,6 +12,7 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author admin
  */
-public interface RessouceService extends CrudRepository<Ressource, Long>{
+public interface RessourceService extends CrudRepository<Ressource, Long>{
+    
     
 }
