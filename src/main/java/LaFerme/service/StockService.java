@@ -27,28 +27,28 @@ public class StockService {
 
     public boolean stockDisponible(int nbRessource, TypeRessource typeRessource) {
         if (typeRessource.equals(TypeRessource.ble)) {
-            if (ressourceService.findByTypeRessource(typeRessource.ble).size() >= nbRessource) {
+            if (ressourceService.findByTypeRessourceAndStatutRessource(typeRessource.ble, StatutRessource.disponible).size() >= nbRessource) {
                 return true;
             }
             return false;
         }
 
         if (typeRessource.equals(TypeRessource.carotte)) {
-            if (ressourceService.findByTypeRessource(typeRessource.carotte).size() >= nbRessource) {
+            if (ressourceService.findByTypeRessourceAndStatutRessource(typeRessource.carotte, StatutRessource.disponible).size() >= nbRessource) {
                 return true;
             }
             return false;
         }
 
         if (typeRessource.equals(TypeRessource.chevre)) {
-            if (ressourceService.findByTypeRessource(typeRessource.chevre).size() >= nbRessource) {
+            if (ressourceService.findByTypeRessourceAndStatutRessource(typeRessource.chevre, StatutRessource.disponible).size() >= nbRessource) {
                 return true;
             }
             return false;
         }
 
         if (typeRessource.equals(TypeRessource.fromage)) {
-            if (ressourceService.findByTypeRessource(typeRessource.fromage).size() >= nbRessource) {
+            if (ressourceService.findByTypeRessourceAndStatutRessource(typeRessource.fromage, StatutRessource.disponible).size() >= nbRessource) {
                 return true;
             }
             return false;

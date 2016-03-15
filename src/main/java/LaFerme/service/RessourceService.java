@@ -6,6 +6,7 @@
 package LaFerme.service;
 
 import LaFerme.entity.Ressource;
+import LaFerme.enumeration.StatutRessource;
 import LaFerme.enumeration.TypeRessource;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
@@ -14,7 +15,7 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author admin
  */
-public interface RessourceService extends CrudRepository<Ressource, Long>{
-    public List<Ressource> findByTypeRessource(TypeRessource typeRessource);
+public interface RessourceService extends CrudRepository<Ressource, Long>{   
+    public List<Ressource> findByTypeRessourceAndStatutRessource(TypeRessource typeRessource, StatutRessource statutRessource);
     
 }
