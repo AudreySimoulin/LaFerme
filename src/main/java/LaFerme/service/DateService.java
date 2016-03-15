@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DateService {
 
-    private GregorianCalendar dateJeu;
+    public GregorianCalendar dateJeu;
 
     public DateService() {
         dateJeu = new GregorianCalendar();

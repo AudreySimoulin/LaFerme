@@ -1,0 +1,61 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15 mars 2016, 13:59:52
+    Author     : admin
+*/
+
+.titre{
+    font-family: fantasy;
+    font-size: 100px;
+    text-align: center;
+    background-image: url(../Images/076_1.jpg);
+    height: 150px;
+    color: gold;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.menu{
+    text-align: center;
+    font-weight: lighter;
+    font-family: cursive;
+    font-size: x-large;
+    color: bisque;
+    background-color: black;
+    border-style: groove;
+    border-radius: 25%;
+    border-color: white;
+    border-width: 5px 0px 5px 0px;
+}
+
+.contenu{
+    text-align: center;
+    font-size: medium;
+    font-family: monospace;   
+    color: black;
+}
+
+.pied{
+    text-align: center;
+    font-family: inherit;
+    font-size: small;
+    color: black;
+    font-style: italic;    
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.connexion{
+    text-align: right;
+    font-size: medium;
+    color: black;
+    font-family: fantasy;
+    position: fixed;
+    top: 0px;
+}

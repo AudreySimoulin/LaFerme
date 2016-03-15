@@ -58,6 +58,12 @@ public class Ressource implements Serializable {
         this.utilisateur = utilisateur;
     }
 
+    public Ressource(TypeRessource typeRessource, StatutRessource statutRessource, Date dateCycle) {
+        this.typeRessource = typeRessource;
+        this.statutRessource = statutRessource;
+        this.dateCycle = dateCycle;
+    }
+
     public Utilisateur getUtilisateur() {
         return utilisateur;
     }
