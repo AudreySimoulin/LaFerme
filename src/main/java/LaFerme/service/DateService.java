@@ -5,9 +5,10 @@
  */
 package LaFerme.service;
 
+import java.util.Calendar;
 import java.util.Date;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import java.util.GregorianCalendar;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,25 +18,31 @@ import org.springframework.stereotype.Service;
 @Service
 public class DateService {
 
-    private static Date dateJeu;
+    private GregorianCalendar dateJeu;
 
     public DateService() {
-        dateJeu = new Date();
+        dateJeu = new GregorianCalendar();
     }
 
-    public boolean dateExpiree(Date date){
-        return true;
+    public boolean dateExpiree(Date date) {
+        return dateJeu.after(date) ;
+          
     }
+
+    public Date calculDateFuture(int nbMois) {
+        dateJeu.add(Calendar.MONTH, nbMois);
+        Date dateFutur = dateJeu.getTime();          
+        return dateFutur;
+    }    
     
-    public Date calculDateFuture(int nbMois){
-        return new Date();
-    }
-
-    public static Date getDateJeu() {
+    public GregorianCalendar getDateJeu() {
         return dateJeu;
     }
     
-    
-       
+    @Scheduled(fixedDelay = 60000)
+    public void accelereDateJeu(){
+        dateJeu.add(Calendar.HOUR, 1);
+    }
 
+    
 }
