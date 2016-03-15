@@ -23,20 +23,68 @@ public class NourrirService {
     private StockService stockService;
     @Autowired
     private DateService dateService;
+    @Autowired
+    private RessourceService ressourceService;
 
     public void nourrir(Ressource boucheAnourrir, Ressource nourriture) {
         //Nourir une chèvre
         if (boucheAnourrir.getTypeRessource().equals(TypeRessource.chevre)) {
             //Vérifier que la nouriture soit du blé ou des carottes
-            if ((nourriture.getTypeRessource().equals(TypeRessource.ble))||(nourriture.getTypeRessource().equals(TypeRessource.carotte))) {
+            if ((nourriture.getTypeRessource().equals(TypeRessource.ble)) || (nourriture.getTypeRessource().equals(TypeRessource.carotte))) {
                 //Vérifier le stock
-                if (stockService.stockDisponible(1, nourriture.getTypeRessource())==true){
+                if (stockService.stockDisponible(1, nourriture.getTypeRessource()) == true) {
                     //Mise à jour de la dateCycle
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateCycle(dateCycle);
-                    
-                    
+                    //Mise à jour du stock 
+                    ressourceService.delete(nourriture);
                 }
+                throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
+            }
+            throw new RuntimeException(boucheAnourrir.getTypeRessource() + " ne mange pas ce type de nourriture");
+        }
+        //Nourrrir fermier
+        if (boucheAnourrir.getTypeRessource().equals(TypeRessource.fermier)) {
+            //Vérifier le stock en fonction de la nourriture
+            if (nourriture.getTypeRessource().equals(TypeRessource.ble)) {
+                if (stockService.stockDisponible(3, nourriture.getTypeRessource()) == true) {
+                    //Mise à jour de la dateCycle
+                    Date dateCycle = dateService.calculDateFuture(3);
+                    boucheAnourrir.setDateCycle(dateCycle);
+                    //Mise à jour du stock 
+                    ressourceService.delete(nourriture);
+                }
+                throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
+            }
+            if (nourriture.getTypeRessource().equals(TypeRessource.carotte)) {
+                if (stockService.stockDisponible(2, nourriture.getTypeRessource()) == true) {
+                    //Mise à jour de la dateCycle
+                    Date dateCycle = dateService.calculDateFuture(3);
+                    boucheAnourrir.setDateCycle(dateCycle);
+                    //Mise à jour du stock 
+                    ressourceService.delete(nourriture);
+                }
+                throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
+            }
+            if (nourriture.getTypeRessource().equals(TypeRessource.fromage)) {
+                if (stockService.stockDisponible(2, nourriture.getTypeRessource()) == true) {
+                    //Mise à jour de la dateCycle
+                    Date dateCycle = dateService.calculDateFuture(3);
+                    boucheAnourrir.setDateCycle(dateCycle);
+                    //Mise à jour du stock 
+                    ressourceService.delete(nourriture);
+                }
+                throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
+            }
+            if (nourriture.getTypeRessource().equals(TypeRessource.chevre)) {
+                if (stockService.stockDisponible(1, nourriture.getTypeRessource()) == true) {
+                    //Mise à jour de la dateCycle
+                    Date dateCycle = dateService.calculDateFuture(3);
+                    boucheAnourrir.setDateCycle(dateCycle);
+                    //Mise à jour du stock 
+                    ressourceService.delete(nourriture);
+                }
+                throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
 
         }
