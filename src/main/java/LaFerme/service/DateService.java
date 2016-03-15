@@ -35,8 +35,8 @@ public class DateService {
         return dateFutur;
     }    
     
-    public GregorianCalendar getDateJeu() {
-        return dateJeu;
+    public Date getDateJeu() {
+        return dateJeu.getTime();
     }
     
     @Scheduled(fixedDelay = 60000)
