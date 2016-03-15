@@ -47,7 +47,7 @@ public class testServlet extends AutowireServlet {
         ressourceService.save(ble2);
         ressourceService.save(chevre);
         
-        System.out.println("**************" + ressourceService.findByTypeRessource(TypeRessource.carotte).size());
+        System.out.println("**************" + ressourceService.findByTypeRessourceAndStatutRessource(TypeRessource.carotte, StatutRessource.disponible).size());
     }
     
     
