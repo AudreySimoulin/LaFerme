@@ -18,7 +18,7 @@
         <c:otherwise>
             Bonjour ${sessionScope.login} !
             <br/>
-            <a href="">Ma Ferme</a>
+            <a href="ma_ferme_servlet">Ma Ferme</a>
             <br/>
             <a href="deconnexion_servlet">D&eacute;connexion</a>
         </c:otherwise>

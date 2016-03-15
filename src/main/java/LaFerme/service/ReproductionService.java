@@ -5,14 +5,15 @@
  */
 package LaFerme.service;
 
-import LaFerme.entity.Utilisateur;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author admin
  */
-public interface UtilisateurService extends CrudRepository<Utilisateur, Long>{
+@Service
+public class ReproductionService {
     
-    public Utilisateur findOneByLoginAndPassword(String login, String password);
+    
+    
 }

@@ -59,3 +59,8 @@ and open the template in the editor.
     position: fixed;
     top: 0px;
 }
+
+table{
+    margin-left: 650px;
+    left: 50%;
+}
