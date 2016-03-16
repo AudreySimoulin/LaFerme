@@ -29,6 +29,11 @@ public class DateService {
 
     private GregorianCalendar dateJeu;
 
+    public GregorianCalendar getDateJeu() {
+        return dateJeu;
+    }
+    
+
     public DateService() {
         dateJeu = new GregorianCalendar();
     }
