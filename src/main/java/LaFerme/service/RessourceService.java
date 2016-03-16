@@ -17,5 +17,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface RessourceService extends CrudRepository<Ressource, Long>{   
     public List<Ressource> findByTypeRessourceAndStatutRessource(TypeRessource typeRessource, StatutRessource statutRessource);
+    public List<Ressource> findByStatutRessource(StatutRessource statutRessource);
     
 }

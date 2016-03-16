@@ -39,10 +39,10 @@ public class Ressource implements Serializable {
     private StatutRessource statutRessource;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dateCycle;
+    private Date dateFinCycle;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dateOccupation;
+    private Date dateFinOccupation;
 
     @ManyToOne
     @JoinColumn(name = "UTIL_ID")
@@ -54,14 +54,14 @@ public class Ressource implements Serializable {
     public Ressource(TypeRessource typeRessource, StatutRessource statutRessource, Date dateCycle, Utilisateur utilisateur) {
         this.typeRessource = typeRessource;
         this.statutRessource = statutRessource;
-        this.dateCycle = dateCycle;
+        this.dateFinCycle = dateCycle;
         this.utilisateur = utilisateur;
     }
 
     public Ressource(TypeRessource typeRessource, StatutRessource statutRessource, Date dateCycle) {
         this.typeRessource = typeRessource;
         this.statutRessource = statutRessource;
-        this.dateCycle = dateCycle;
+        this.dateFinCycle = dateCycle;
     }
 
     public Utilisateur getUtilisateur() {
@@ -88,20 +88,20 @@ public class Ressource implements Serializable {
         this.statutRessource = statutRessource;
     }
 
-    public Date getDateCycle() {
-        return dateCycle;
+    public Date getDateFinCycle() {
+        return dateFinCycle;
     }
 
-    public void setDateCycle(Date dateCycle) {
-        this.dateCycle = dateCycle;
+    public void setDateFinCycle(Date dateFinCycle) {
+        this.dateFinCycle = dateFinCycle;
     }
 
-    public Date getDateOccupation() {
-        return dateOccupation;
+    public Date getDateFinOccupation() {
+        return dateFinOccupation;
     }
 
-    public void setDateOccupation(Date dateOccupation) {
-        this.dateOccupation = dateOccupation;
+    public void setDateFinOccupation(Date dateFinOccupation) {
+        this.dateFinOccupation = dateFinOccupation;
     }
 
     public Long getId() {

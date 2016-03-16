@@ -35,7 +35,7 @@ public class NourrirService {
                 if (stockService.stockDisponible(1, nourriture.getTypeRessource()) == true) {
                     //Mise à jour de la dateCycle
                     Date dateCycle = dateService.calculDateFuture(3);
-                    boucheAnourrir.setDateCycle(dateCycle);
+                    boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
                     ressourceService.delete(nourriture);
                 }
@@ -50,7 +50,7 @@ public class NourrirService {
                 if (stockService.stockDisponible(3, nourriture.getTypeRessource()) == true) {
                     //Mise à jour de la dateCycle
                     Date dateCycle = dateService.calculDateFuture(3);
-                    boucheAnourrir.setDateCycle(dateCycle);
+                    boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
                     ressourceService.delete(nourriture);
                 }
@@ -60,7 +60,7 @@ public class NourrirService {
                 if (stockService.stockDisponible(2, nourriture.getTypeRessource()) == true) {
                     //Mise à jour de la dateCycle
                     Date dateCycle = dateService.calculDateFuture(3);
-                    boucheAnourrir.setDateCycle(dateCycle);
+                    boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
                     ressourceService.delete(nourriture);
                 }
@@ -70,7 +70,7 @@ public class NourrirService {
                 if (stockService.stockDisponible(2, nourriture.getTypeRessource()) == true) {
                     //Mise à jour de la dateCycle
                     Date dateCycle = dateService.calculDateFuture(3);
-                    boucheAnourrir.setDateCycle(dateCycle);
+                    boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
                     ressourceService.delete(nourriture);
                 }
@@ -80,7 +80,7 @@ public class NourrirService {
                 if (stockService.stockDisponible(1, nourriture.getTypeRessource()) == true) {
                     //Mise à jour de la dateCycle
                     Date dateCycle = dateService.calculDateFuture(3);
-                    boucheAnourrir.setDateCycle(dateCycle);
+                    boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
                     ressourceService.delete(nourriture);
                 }

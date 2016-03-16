@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DateService {
 
-    public GregorianCalendar dateJeu;
+    private GregorianCalendar dateJeu;
 
     public DateService() {
         dateJeu = new GregorianCalendar();
@@ -34,10 +34,6 @@ public class DateService {
         Date dateFutur = dateJeu.getTime();          
         return dateFutur;
     }    
-    
-    public Date getDateJeu() {
-        return dateJeu.getTime();
-    }
     
     @Scheduled(fixedDelay = 60000)
     public void accelereDateJeu(){

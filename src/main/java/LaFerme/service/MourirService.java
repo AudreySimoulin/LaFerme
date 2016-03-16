@@ -27,7 +27,7 @@ public class MourirService {
     
     public void mourir(){
         for(Ressource ressource : ressourceService.findAll()){
-            if(dateService.dateExpiree(ressource.getDateCycle()) && (ressource.getTypeRessource().equals(TypeRessource.chevre) || ressource.getTypeRessource().equals(TypeRessource.fermier))){
+            if(dateService.dateExpiree(ressource.getDateFinCycle()) && (ressource.getTypeRessource().equals(TypeRessource.chevre) || ressource.getTypeRessource().equals(TypeRessource.fermier))){
                 ressourceService.delete(ressource);
             }
         }
