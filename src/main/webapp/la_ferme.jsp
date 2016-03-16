@@ -50,7 +50,7 @@
                 <td>
                     <table>
                         <tr>
-                            <td>${nbCarottesDispo} disponible(s)</td>
+                            <td>${nbCarottesDispo} disponible(s) <a href=""><input class="boutonStock" type="button" value="Planter"></a></td>
                         </tr>
                         <tr>
                             <td>${nbCarottesPantees} plant&eacute;e(s)</td>
@@ -65,7 +65,7 @@
                 <td>
                     <table>
                         <tr>
-                            <td>${nbBlesDispo} disponible(s)</td>
+                            <td>${nbBlesDispo} disponible(s) <a href=""><input class="boutonStock" type="button" value="Planter"></a></td>
                         </tr>
                         <tr>
                             <td>${nbBlesPantees} plant&eacute;e(s)</td>
@@ -80,7 +80,7 @@
                 <td>
                     <table>
                         <tr>
-                            <td>${nbChevresDispo} disponible(s)</td>
+                            <td>${nbChevresDispo} disponible(s) <a href=""><input class="boutonStock" type="button" value="Reproduction"></a></td>
                         </tr>
                         <tr>
                             <td>${nbChevresEnceintes} enceinte(s)</td>
