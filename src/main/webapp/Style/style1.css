@@ -48,7 +48,7 @@ and open the template in the editor.
     background-image: url(../Images/Les-animaux-de-la-ferme.jpg);
     background-position: top center;
     background-repeat: no-repeat;
-    background-color: palegreen;
+    background-color: limegreen;
 }
 
 .pied{
@@ -69,8 +69,10 @@ and open the template in the editor.
     color: black;
     font-family: fantasy;
     position: fixed;
-    top: 40px;
+    top: 50px;
     left: 35%;
+    border: blue;
+    border-style: double;
 }
 
 table{
