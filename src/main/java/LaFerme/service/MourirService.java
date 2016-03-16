@@ -10,6 +10,7 @@ import LaFerme.entity.Utilisateur;
 import LaFerme.enumeration.TypeRessource;
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 /**
@@ -26,6 +27,7 @@ public class MourirService {
     @Autowired
     private DateService dateService;
     
+    @Scheduled
     public void mourir(Utilisateur utilisateur){
         for(Ressource ressource : ressourceService.findAll()){
             if(dateService.dateExpiree(ressource.getDateFinCycle()) && (ressource.getTypeRessource().equals(TypeRessource.chevre) || ressource.getTypeRessource().equals(TypeRessource.fermier))){

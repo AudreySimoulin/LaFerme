@@ -52,6 +52,7 @@ public class ReproductionService {
         }
     }
 
+    @Scheduled
     public void naissance(Utilisateur utilisateur) {
         int lower = 0;
         int higher = 0;
