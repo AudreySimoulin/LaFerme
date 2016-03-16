@@ -5,9 +5,12 @@
  */
 package LaFerme.service;
 
+import LaFerme.entity.Utilisateur;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import javax.ejb.Schedule;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class DateService {
+    @Autowired
+    private UtilisateurService utilisateurService;
+    @Autowired
+    private MourirService mourirService;    
+    @Autowired
+    private ReproductionService reproductionService;
 
     private GregorianCalendar dateJeu;
 
@@ -39,6 +48,23 @@ public class DateService {
     public void accelereDateJeu(){
         dateJeu.add(Calendar.HOUR, 1);
     }
+    
+    @Scheduled (fixedDelay = 60000)
+    public void actualiserRessource(){
+        for(Utilisateur u : utilisateurService.findAll()){
+            reproductionService.naissance(u);
+            mourirService.mourir(u);
+        }
+    }
+    
+    @Scheduled (fixedDelay = (6*30*24*60000))
+    public void actualiserFromage(){
+        for(Utilisateur u : utilisateurService.findAll()){
+            reproductionService.genererFromage(u);
+        }
+    }
+    
+    
 
     
 }
