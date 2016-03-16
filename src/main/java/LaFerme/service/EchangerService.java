@@ -28,7 +28,7 @@ public class EchangerService {
     @Autowired
     private DateService dateService;
 
-    public void echanger(Utilisateur utilisateur, Ressource ressourceVendue, Ressource ressourceAchetee) {
+    public void echanger(Utilisateur utilisateur, TypeRessource TypeRessourceVendue, TypeRessource TypeRessourceAchetee) {
         //Initialisation de la valeur de chaque type de ressource
         Map<TypeRessource, Integer> mapValeur = new HashMap();
         mapValeur.put(TypeRessource.ble, 1);
@@ -36,8 +36,8 @@ public class EchangerService {
         mapValeur.put(TypeRessource.chevre, 1);
 
         //Initialisation des valeur de vente et d'achat
-        int valeurVente = mapValeur.get(ressourceVendue.getTypeRessource());
-        int valeurAchat = mapValeur.get(ressourceAchetee.getTypeRessource());
+        int valeurVente = mapValeur.get(TypeRessourceVendue);
+        int valeurAchat = mapValeur.get(TypeRessourceAchetee);
 
         //Calcul du nombre de ressources achatées et vendues        
         int nbAchetee = valeurVente / valeurAchat;
@@ -49,17 +49,17 @@ public class EchangerService {
         }
 
         //Vérification du stock
-        if (stockService.stockDisponible(nbVendue, ressourceVendue.getTypeRessource()) == true) {
+        if (stockService.stockDisponible(nbVendue, TypeRessourceVendue) == true) {
             //Mise à jour du stock            
             for (int i = 0; i <= nbAchetee; i++) {
-                Ressource achat = new Ressource(ressourceAchetee.getTypeRessource(), StatutRessource.disponible, dateService.calculDateFuture(3), utilisateur);
+                Ressource achat = new Ressource(TypeRessourceAchetee, StatutRessource.disponible, dateService.calculDateFuture(3), utilisateur);
                 utilisateur.getRessources().add(achat);
                 ressourceService.save(achat);
             }
             for (int i = 0; i <= nbVendue; i++) {
-                ressourceService.delete(ressourceVendue);
+                ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), TypeRessourceVendue);
             }
-
+            throw new RuntimeException("Pas assez de " + TypeRessourceVendue + " en stock");
         }
     }
 

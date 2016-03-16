@@ -6,6 +6,7 @@
 package LaFerme.service;
 
 import LaFerme.entity.Ressource;
+import LaFerme.entity.Utilisateur;
 import LaFerme.enumeration.TypeRessource;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class NourrirService {
     @Autowired
     private RessourceService ressourceService;
 
-    public void nourrir(Ressource boucheAnourrir, Ressource nourriture) {
+    public void nourrir(Utilisateur utilisateur, Ressource boucheAnourrir, Ressource nourriture) {
         //Nourir une chèvre
         if (boucheAnourrir.getTypeRessource().equals(TypeRessource.chevre)) {
             //Vérifier que la nouriture soit du blé ou des carottes
@@ -37,7 +38,7 @@ public class NourrirService {
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
-                    ressourceService.delete(nourriture);
+                    ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), nourriture.getTypeRessource());
                 }
                 throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
@@ -52,7 +53,7 @@ public class NourrirService {
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
-                    ressourceService.delete(nourriture);
+                    ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), nourriture.getTypeRessource());
                 }
                 throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
@@ -62,7 +63,7 @@ public class NourrirService {
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
-                    ressourceService.delete(nourriture);
+                    ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), nourriture.getTypeRessource());
                 }
                 throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
@@ -72,7 +73,7 @@ public class NourrirService {
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
-                    ressourceService.delete(nourriture);
+                    ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), nourriture.getTypeRessource());
                 }
                 throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
@@ -82,7 +83,7 @@ public class NourrirService {
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
-                    ressourceService.delete(nourriture);
+                    ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), nourriture.getTypeRessource());
                 }
                 throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
