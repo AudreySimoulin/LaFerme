@@ -52,7 +52,6 @@ public class ReproductionService {
         }
     }
 
-    @Scheduled
     public void naissance(Utilisateur utilisateur) {
         int lower = 0;
         int higher = 0;
@@ -83,7 +82,6 @@ public class ReproductionService {
         }
     }
     
-    @Scheduled
     public void genererFromage(Utilisateur utilisateur){
         int lower = 0;
         int higher = 0;

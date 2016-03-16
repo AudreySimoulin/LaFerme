@@ -26,8 +26,7 @@ public class MourirService {
     
     @Autowired
     private DateService dateService;
-    
-    @Scheduled
+
     public void mourir(Utilisateur utilisateur){
         for(Ressource ressource : ressourceService.findAll()){
             if(dateService.dateExpiree(ressource.getDateFinCycle()) && (ressource.getTypeRessource().equals(TypeRessource.chevre) || ressource.getTypeRessource().equals(TypeRessource.fermier))){

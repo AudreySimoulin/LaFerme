@@ -14,7 +14,8 @@
         <c:import url="_CSS.jsp"/>
     </head>
     <body>
-        <c:import url="_TITRE.jsp"/>
+        <img src="Images/ferme.jpg" alt=""/>
+        
         <c:import url="_MENU.jsp"/>
         <div class="contenu">
             
