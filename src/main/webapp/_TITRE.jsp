@@ -13,7 +13,6 @@
     <c:choose>
         <c:when test="${sessionScope.login==null}">
             <c:import url="connexion_inscription.jsp"/> <br/><br/><br/>
-            <a href="inscription.jsp">Inscription</a>
         </c:when>
         <c:otherwise>
             Bonjour ${sessionScope.login} !

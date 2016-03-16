@@ -13,13 +13,11 @@
         <title>La Ferme en Folie</title>
         <c:import url="_CSS.jsp"/>
     </head>
-    <body>
-        <c:import url="_TITRE.jsp"/>
-        <c:import url="_MENU.jsp"/>
+    <body class="bodyHome">
         <div class="contenu">
             <h2>Cr&eacute;ation de ma ferme</h2>
             <form method="post" action="inscription_servlet">
-                <table>
+                <table class="inscription">
                     <tr>
                         <td><label>Login</label></td>
                         <td><input type="text" name="login"/></td>

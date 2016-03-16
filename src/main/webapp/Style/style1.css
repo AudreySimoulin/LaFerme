@@ -71,11 +71,46 @@ and open the template in the editor.
     position: fixed;
     top: 50px;
     left: 35%;
-    border: blue;
-    border-style: double;
+    background-color: wheat;
+    opacity: 0.75;
 }
 
 table{
     margin-left: 650px;
     left: 50%;
 }
+
+.inscription{
+    text-align: center;
+    background-color: chocolate;
+    opacity: 0.8;
+}
+
+.boutonHome {
+    background-color: gold;
+    border-radius:42px;
+    border:4px black outset;
+    cursor:pointer;
+    color: black;
+    font-family:Arial;
+    font-size:28px;
+    font-weight:bold;
+    padding:32px 76px;
+    text-shadow:0px 4px 0px #528009;
+    opacity: 0.75;
+}
+
+.stock{
+    text-align: center;
+    top: 50px;
+    right: 10%;
+    background-color: chocolate;
+    opacity: 0.75;
+}
+
+.bouton1{
+    
+}
+
+
+

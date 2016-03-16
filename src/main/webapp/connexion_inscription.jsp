@@ -13,4 +13,5 @@
         <label>Password</label><input type="password" name="password"/>
         <input type="submit" value="Connexion">
     </form>
+    <a href="inscription.jsp">Inscription</a>
 </div>
