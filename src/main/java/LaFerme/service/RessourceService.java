@@ -19,5 +19,6 @@ public interface RessourceService extends CrudRepository<Ressource, Long>{
     public List<Ressource> findByTypeRessourceAndStatutRessource(TypeRessource typeRessource, StatutRessource statutRessource);
     public List<Ressource> findByStatutRessource(StatutRessource statutRessource);
     public void removeByUtilisateurIdAndTypeRessource(Long idUtilisateur, TypeRessource typeRessource);
+    public List<Ressource> findByTypeRessource(TypeRessource typeRessource);
     
 }

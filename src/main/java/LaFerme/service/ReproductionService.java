@@ -10,6 +10,7 @@ import LaFerme.entity.Utilisateur;
 import LaFerme.enumeration.StatutRessource;
 import LaFerme.enumeration.TypeRessource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 /**
@@ -59,12 +60,12 @@ public class ReproductionService {
         if (ressource.getTypeRessource().equals(TypeRessource.carotte) && dateService.dateExpiree(ressource.getDateFinOccupation())) {
             lower = 2;
             higher = 4;
-            ressourceService.delete(ressource);
+            ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), ressource.getTypeRessource());
         }
         if (ressource.getTypeRessource().equals(TypeRessource.ble) && dateService.dateExpiree(ressource.getDateFinOccupation())) {
             lower = 3;
             higher = 5;
-            ressourceService.delete(ressource);
+            ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), ressource.getTypeRessource());
         }
         if (ressource.getTypeRessource().equals(TypeRessource.chevre) && dateService.dateExpiree(ressource.getDateFinOccupation())) {
             lower = 1;
@@ -78,6 +79,24 @@ public class ReproductionService {
             ressourceService.save(r);
             utilisateurService.save(utilisateur);
         }
+        }
+    }
+    
+    @Scheduled
+    public void genererFromage(Utilisateur utilisateur){
+        int lower = 0;
+        int higher = 0;
+        for(Ressource ressource : ressourceService.findByTypeRessource(TypeRessource.chevre)){
+            lower = 2;
+            higher = 4;
+            int nbFromage = (int) (Math.random() * (higher - lower)) + lower;
+            
+            for(int i = 0; i<=nbFromage; i++){
+                Ressource r = new Ressource(TypeRessource.fromage, StatutRessource.disponible, utilisateur);
+                utilisateur.getRessources().add(r);
+                ressourceService.save(r);
+                utilisateurService.save(utilisateur);
+            }
         }
     }
 }

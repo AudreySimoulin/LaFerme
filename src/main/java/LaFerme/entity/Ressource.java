@@ -51,17 +51,23 @@ public class Ressource implements Serializable {
     public Ressource() {
     }
 
-    public Ressource(TypeRessource typeRessource, StatutRessource statutRessource, Date dateCycle, Utilisateur utilisateur) {
+    public Ressource(TypeRessource typeRessource, StatutRessource statutRessource, Utilisateur utilisateur) {
         this.typeRessource = typeRessource;
         this.statutRessource = statutRessource;
-        this.dateFinCycle = dateCycle;
         this.utilisateur = utilisateur;
     }
 
-    public Ressource(TypeRessource typeRessource, StatutRessource statutRessource, Date dateCycle) {
+    public Ressource(TypeRessource typeRessource, StatutRessource statutRessource, Date dateFinCycle, Utilisateur utilisateur) {
         this.typeRessource = typeRessource;
         this.statutRessource = statutRessource;
-        this.dateFinCycle = dateCycle;
+        this.dateFinCycle = dateFinCycle;
+        this.utilisateur = utilisateur;
+    }
+
+    public Ressource(TypeRessource typeRessource, StatutRessource statutRessource, Date dateFinCycle) {
+        this.typeRessource = typeRessource;
+        this.statutRessource = statutRessource;
+        this.dateFinCycle = dateFinCycle;
     }
 
     public Utilisateur getUtilisateur() {
