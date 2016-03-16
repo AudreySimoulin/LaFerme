@@ -5,7 +5,12 @@
  */
 package LaFerme.servlet;
 
+import LaFerme.entity.Ressource;
 import LaFerme.entity.Utilisateur;
+import LaFerme.enumeration.StatutRessource;
+import LaFerme.enumeration.TypeRessource;
+import LaFerme.service.DateService;
+import LaFerme.service.RessourceService;
 import LaFerme.service.UtilisateurService;
 import LaFerme.spring.AutowireServlet;
 import java.io.IOException;
@@ -26,22 +31,31 @@ public class InscriptionServlet extends AutowireServlet {
 
     @Autowired
     private UtilisateurService utilisateurService;
+    @Autowired
+    private RessourceService ressourceService;
+    @Autowired
+    private DateService dateService;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        
-        if(utilisateurService.findOneByLoginAndPassword(login, password) != null){
+
+        if (utilisateurService.findOneByLoginAndPassword(login, password) != null) {
             throw new RuntimeException("Login déjà existant");
         }
-        
+
         Utilisateur utilisateur = new Utilisateur(login, password);
+        Ressource fermier = new Ressource(TypeRessource.fermier, StatutRessource.disponible, dateService.calculDateFuture(3), utilisateur);
+        for (int i = 0; i <= 3; i++) {
+            Ressource carotte = new Ressource(TypeRessource.carotte, StatutRessource.disponible, utilisateur);
+            Ressource ble = new Ressource(TypeRessource.ble, StatutRessource.disponible, utilisateur);
+            ressourceService.save(carotte);
+            ressourceService.save(ble);
+        }
         utilisateurService.save(utilisateur);
-        
-        resp.sendRedirect("connexion.jsp");
-        
+        resp.sendRedirect("homepage.jsp");
+
     }
-    
-    
+
 }

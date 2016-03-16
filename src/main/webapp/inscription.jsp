@@ -17,7 +17,7 @@
         <c:import url="_TITRE.jsp"/>
         <c:import url="_MENU.jsp"/>
         <div class="contenu">
-            <h2>Inscription</h2>
+            <h2>Cr&eacute;ation de ma ferme</h2>
             <form method="post" action="inscription_servlet">
                 <table>
                     <tr>

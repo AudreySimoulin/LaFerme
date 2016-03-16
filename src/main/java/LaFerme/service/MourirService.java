@@ -8,9 +8,9 @@ package LaFerme.service;
 import LaFerme.entity.Ressource;
 import LaFerme.entity.Utilisateur;
 import LaFerme.enumeration.TypeRessource;
-import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
+
 import org.springframework.stereotype.Service;
 
 /**
