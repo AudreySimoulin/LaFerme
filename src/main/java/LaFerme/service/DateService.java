@@ -5,7 +5,9 @@
  */
 package LaFerme.service;
 
+import LaFerme.entity.Ressource;
 import LaFerme.entity.Utilisateur;
+import LaFerme.enumeration.TypeRessource;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -27,8 +29,11 @@ public class DateService {
     private MourirService mourirService;    
     @Autowired
     private ReproductionService reproductionService;
+    @Autowired
+    private RessourceService ressourceService;
 
     private GregorianCalendar dateJeu;
+    
 
     public GregorianCalendar getDateJeu() {
         return dateJeu;
@@ -75,6 +80,16 @@ public class DateService {
         String horloge = horlogeFormat.format(dateJeu.getTime());        
         return horloge;
         
+    }
+    
+    public String getDureeVie(TypeRessource typeRessource){
+        Ressource ressource = ressourceService.findByTypeRessourceOrderByDateFinCycle(typeRessource).get(0);
+        Long dureeVieMs = ressource.getDateFinCycle().getTime()-dateJeu.getTime().getTime();
+        Calendar c = new GregorianCalendar();
+        c.setTimeInMillis(dureeVieMs);
+        SimpleDateFormat horlogeFormat = new SimpleDateFormat("dd ' j 'hh:mm");
+        String horloge = horlogeFormat.format(c.getTime());        
+        return horloge;
     }
     
    
