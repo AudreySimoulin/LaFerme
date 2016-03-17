@@ -37,7 +37,8 @@ public class LaFermeServlet extends AutowireServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("dateJeu", dateService.getDateJeu());
+        req.setAttribute("dateJeu", dateService.getHorloge());
+        
         req.setAttribute("nbCarottesDispo", ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.carotte, StatutRessource.disponible));
         req.setAttribute("nbCarottesPantees", ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.carotte, StatutRessource.occupe));
         req.setAttribute("nbBlesDispo", ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.ble, StatutRessource.disponible));
@@ -49,6 +50,9 @@ public class LaFermeServlet extends AutowireServlet{
          
         Date finDeCycleFermier = ressourceService.findByTypeRessourceOrderByDateFinCycle(TypeRessource.fermier).get(0).getDateFinCycle();
         Long dureeVieFermier = finDeCycleFermier.getTime()-dateService.getDateJeu().getTime().getTime();
+        
+        
+        
         req.setAttribute("dureeVieFermier", dureeVieFermier);
          
         if(!ressourceService.findByTypeRessource(TypeRessource.chevre).isEmpty()){

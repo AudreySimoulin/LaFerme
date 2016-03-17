@@ -6,6 +6,7 @@
 package LaFerme.service;
 
 import LaFerme.entity.Utilisateur;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -68,6 +69,15 @@ public class DateService {
             reproductionService.genererFromage(u);
         }
     }
+    
+    public String getHorloge(){        
+        SimpleDateFormat horlogeFormat = new SimpleDateFormat("hh:mm' 'dd/MM/YYYY");
+        String horloge = horlogeFormat.format(dateJeu.getTime());        
+        return horloge;
+        
+    }
+    
+   
     
     
 
