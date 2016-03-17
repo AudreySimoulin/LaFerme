@@ -6,7 +6,6 @@
 package LaFerme.servlet;
 
 import LaFerme.entity.Ressource;
-import LaFerme.entity.Utilisateur;
 import LaFerme.enumeration.StatutRessource;
 import LaFerme.enumeration.TypeRessource;
 import LaFerme.service.NourrirService;
@@ -27,27 +26,22 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author admin
  */
-@WebServlet(name = "NourrirServlet", urlPatterns = {"/nourrir_servlet"})
-public class NourrirServlet extends AutowireServlet {
-
-    @Autowired
-    private NourrirService nourrirService;
+@WebServlet(name = "AfficherNourrirServlet", urlPatterns = {"/afficher_nourrir_servlet"})
+public class AfficherNourrirServlet extends AutowireServlet {    
+    
     @Autowired
     private RessourceService ressourceService;
-    @Autowired
-    private UtilisateurService utilisateurService;
-
-    
-
+   
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Utilisateur utilisateur = utilisateurService.findOneByLogin((String) req.getSession().getAttribute("login"));
-        Ressource boucheAnourrir = ressourceService.findOne(Long.parseLong(req.getParameter("boucheAnourrir")));
-        Ressource nourriture = ressourceService.findOne(Long.parseLong(req.getParameter("nourriture")));
-        nourrirService.nourrir(utilisateur, boucheAnourrir, nourriture);
-        resp.sendRedirect("afficher_nourrir_servlet");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Ressource> nourritures = ressourceService.findDistinctTypeRessourceByStatutRessource(StatutRessource.disponible);
+        List<Ressource> bouchesAnourrir = ressourceService.findByTypeRessource(TypeRessource.fermier);
+        for(Ressource r : ressourceService.findByTypeRessource(TypeRessource.chevre)){
+            bouchesAnourrir.add(r);
+        }
+        req.setAttribute("nourritures", nourritures);
+        req.setAttribute("bouchesAnourrir", bouchesAnourrir);
+        req.getRequestDispatcher("nourrir.jsp").forward(req, resp);
     }
-    
-    
 
 }

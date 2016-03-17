@@ -15,4 +15,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface UtilisateurService extends CrudRepository<Utilisateur, Long>{
     
     public Utilisateur findOneByLoginAndPassword(String login, String password);
+    public Utilisateur findOneByLogin(String login);
 }
