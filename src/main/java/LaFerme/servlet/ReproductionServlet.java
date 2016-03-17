@@ -34,7 +34,7 @@ public class ReproductionServlet extends AutowireServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         TypeRessource typeRessource = TypeRessource.valueOf(TypeRessource.class, req.getParameter("typeRessource"));
         reproductionService.reproduire(ressourceService.findByTypeRessourceAndStatutRessource(typeRessource, StatutRessource.disponible).get(0));
-        req.getRequestDispatcher("la_ferme_servlet").forward(req, resp);
+        resp.sendRedirect("la_ferme_servlet");
         
     }
     

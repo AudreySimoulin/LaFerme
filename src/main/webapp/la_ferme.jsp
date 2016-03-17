@@ -16,7 +16,7 @@
             var task = function (){
                 document.location.reload();
             }
-            window.setTimeout(task,1000);
+            window.setTimeout(task,60000);
         </script>
     </head>
     <body class="bodyFerme">
