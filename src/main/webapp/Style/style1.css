@@ -26,7 +26,7 @@ and open the template in the editor.
     font-size: medium;
     font-family: monospace;   
     color: black;
-    height: 100px;
+    height: 400px;
 }
 
 .bodyFerme{
@@ -118,7 +118,7 @@ and open the template in the editor.
     border-style: groove;
     border-color: greenyellow;
     margin-left: 1200px;
-    display: inline-table;
+    float: left;
 }
 
 .dateJeu{
@@ -138,7 +138,7 @@ and open the template in the editor.
     width: 150px;
     height: 200px;
     margin-top: 200px;
-    display: inline-table;
+    float: left;
 }
 
 .bouton1{
