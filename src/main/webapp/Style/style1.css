@@ -18,7 +18,7 @@ and open the template in the editor.
     color: gold;
     margin-left: 200px;
     margin-right: 200px;
-    margin-top: 530px;
+    margin-top: 230px;
 }
 
 .contenu{
@@ -111,19 +111,20 @@ and open the template in the editor.
 
 .stock{
     text-align: justify;
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 270px;
     background-color: #00cc33;
     opacity: 0.75;
     border-style: groove;
     border-color: greenyellow;
     margin-left: 1200px;
     float: left;
+    display: inline-block;
 }
 
 .dateJeu{
     background-color:#00cc33;
-    width: 150px;
+    width: 200px;
     height: 100px;
     margin-top: 100px;
     opacity: 0.75;
@@ -133,12 +134,16 @@ and open the template in the editor.
 }
 
 .dureeVie{
-    background-color: red;
+    background-color: #ff3333;
     opacity: 0.75;
     width: 150px;
     height: 200px;
-    margin-top: 200px;
+    margin-top: 50px;
     float: left;
+    display: inline-block;
+    text-align: center;
+    border-style: outset;
+    border-color: #ff6666;
 }
 
 .bouton1{
