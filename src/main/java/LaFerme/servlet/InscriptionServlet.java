@@ -46,10 +46,15 @@ public class InscriptionServlet extends AutowireServlet {
         }
 
         Utilisateur utilisateur = new Utilisateur(login, password);
+        utilisateurService.save(utilisateur);
         Ressource fermier = new Ressource(TypeRessource.fermier, StatutRessource.disponible, dateService.calculDateFuture(3), utilisateur);
-        for (int i = 0; i <= 3; i++) {
+        utilisateur.getRessources().add(fermier);
+        ressourceService.save(fermier);
+        for (int i = 0; i < 3; i++) {
             Ressource carotte = new Ressource(TypeRessource.carotte, StatutRessource.disponible, utilisateur);
             Ressource ble = new Ressource(TypeRessource.ble, StatutRessource.disponible, utilisateur);
+            utilisateur.getRessources().add(ble);
+            utilisateur.getRessources().add(carotte);
             ressourceService.save(carotte);
             ressourceService.save(ble);
         }

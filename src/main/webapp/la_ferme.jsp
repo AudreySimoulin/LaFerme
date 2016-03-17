@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,15 +13,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        //Cadran Date Jeu
+        <%-- //Cadran Date Jeu--%>
         <div class="dateJeu">             
             <img src="Images/calendar.png" alt=""/> ${dateJeu}
         </div>
 
-        //Bouton Echanger ressource
+        <%-- //Bouton Echanger ressource--%>
         <a href="echanger_ressource_servlet"><input class="bouton" type="button" value="Echanger mes ressources"></a>
 
-        //Cadran Durées de vie
+        <%-- //Cadran Durées de vie--%>
         <div class="dureeVie">
             Durées de vie
             <br>
@@ -29,19 +30,23 @@
                     <td>
                         <img src="Images/Farmer_Smurf.png" alt=""/>
                     </td>
-                    <td>
-                        <img src="Images/chevre.png" alt=""/>
-                    </td>
+                    <c:if test="${dureeVieChevre != null}">
+                        <td>
+                            <img src="Images/chevre.png" alt=""/>
+                        </td>
+                    </c:if>
                 </tr>
                 <tr>
                     <td>${dureeVieFermier}</td>
-                    <td>${dureeVieChevre}</td>
+                    <c:if test="${dureeVieChevre != null}">
+                        <td>${dureeVieChevre}</td>
+                    </c:if>
                 </tr>
             </table>
             <a href="nourrir_servlet"><input class="bouton" type="button" value="Nourrir mes ressources"></a>
         </div>
 
-        //Cadran stock ressources
+        <%-- //Cadran stock ressources--%>
         <table class="stock">
             <tr>
                 <td>

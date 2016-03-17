@@ -51,9 +51,11 @@ public class LaFermeServlet extends AutowireServlet{
         Long dureeVieFermier = finDeCycleFermier.getTime()-dateService.getDateJeu().getTime().getTime();
         req.setAttribute("dureeVieFermier", dureeVieFermier);
          
+        if(!ressourceService.findByTypeRessource(TypeRessource.chevre).isEmpty()){
         Date finDeCycleChevre = ressourceService.findByTypeRessourceOrderByDateFinCycle(TypeRessource.chevre).get(0).getDateFinCycle();
         Long dureeVieChevre = finDeCycleChevre.getTime()-dateService.getDateJeu().getTime().getTime();
         req.setAttribute("dureeVieChevre", dureeVieChevre);
+        }
         
         req.getRequestDispatcher("la_ferme.jsp").forward(req, resp);
         
