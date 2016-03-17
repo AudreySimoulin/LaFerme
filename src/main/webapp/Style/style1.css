@@ -150,5 +150,17 @@ and open the template in the editor.
     
 }
 
+.nutrition{
+    background-color: #00cc33;
+    width: 570px;
+    opacity: 0.75;
+    text-align: center;
+    margin-top: 90px;
+    margin-left: 460px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: greenyellow;
+}
+
 
 

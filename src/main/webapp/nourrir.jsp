@@ -15,7 +15,7 @@
     </head>
     <body class="bodyFerme">
         <c:import url="_TITRE.jsp"/>
-        <div class="contenu">
+        <div class="nutrition">
             <a href="la_ferme_servlet"><input type="button" value="Retour au jeu"></a>
             <br>
             <table>
