@@ -12,6 +12,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>La Ferme en Folie</title>
         <c:import url="_CSS.jsp"/>
+        <script type="text/javascript">
+            var task = function (){
+                document.location.reload();
+            }
+            window.setTimeout(task,1000);
+        </script>
     </head>
     <body class="bodyFerme">
         <c:import url="_TITRE.jsp"/>
@@ -58,7 +64,7 @@
                 <td>
                     <table>
                         <tr>
-                            <td>${nbCarottesDispo} disponible(s) <a href="la_ferme_servlet?typeRessource"><input class="boutonStock" type="button" value="Planter"></a></td>
+                            <td>${nbCarottesDispo} disponible(s) <a href="la_ferme_servlet?typeRessource=carotte"><input class="boutonStock" type="button" value="Planter"></a></td>
                         </tr>
                         <tr>
                             <td>${nbCarottesPantees} plant&eacute;e(s)</td>
@@ -73,7 +79,7 @@
                 <td>
                     <table>
                         <tr>
-                            <td>${nbBlesDispo} disponible(s) <a href="la_ferme_servlet?typeRessource"><input class="boutonStock" type="button" value="Planter"></a></td>
+                            <td>${nbBlesDispo} disponible(s) <a href="la_ferme_servlet?typeRessource=ble"><input class="boutonStock" type="button" value="Planter"></a></td>
                         </tr>
                         <tr>
                             <td>${nbBlesPantees} plant&eacute;e(s)</td>
@@ -88,7 +94,7 @@
                 <td>
                     <table style="width: 100">
                         <tr>
-                            <td>${nbChevresDispo} disponible(s) <a href="la_ferme_servlet?typeRessource"><input class="boutonStock" type="button" value="Reproduction"></a></td>
+                            <td>${nbChevresDispo} disponible(s) <a href="la_ferme_servlet?typeRessource=chevre"><input class="boutonStock" type="button" value="Reproduction"></a></td>
                         </tr>
                         <tr>
                             <td>${nbChevresEnceintes} enceinte(s)</td>
