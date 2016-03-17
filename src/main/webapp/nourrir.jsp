@@ -41,7 +41,7 @@
                             </td>
                             <td>
                                 <select name="nourriture">
-                                    <c:forEach items="nourritures" var="nourriture">
+                                    <c:forEach items="${nourritures}" var="nourriture">
                                         <option value="${nourriture.id}">${nourriture.typeRessource}</option>
                                     </c:forEach>
                                 </select>
