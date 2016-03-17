@@ -30,28 +30,28 @@ public class StockService {
             if (ressourceService.findByTypeRessourceAndStatutRessource(typeRessource.ble, StatutRessource.disponible).size() >= nbRessource) {
                 return true;
             }
-            return false;
+           
         }
 
         if (typeRessource.equals(TypeRessource.carotte)) {
             if (ressourceService.findByTypeRessourceAndStatutRessource(typeRessource.carotte, StatutRessource.disponible).size() >= nbRessource) {
                 return true;
             }
-            return false;
+            
         }
 
         if (typeRessource.equals(TypeRessource.chevre)) {
             if (ressourceService.findByTypeRessourceAndStatutRessource(typeRessource.chevre, StatutRessource.disponible).size() >= nbRessource) {
                 return true;
             }
-            return false;
+            
         }
 
         if (typeRessource.equals(TypeRessource.fromage)) {
             if (ressourceService.findByTypeRessourceAndStatutRessource(typeRessource.fromage, StatutRessource.disponible).size() >= nbRessource) {
                 return true;
             }
-            return false;
+           
         }
         return false;
     }

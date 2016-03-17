@@ -34,12 +34,14 @@ public class ReproductionService {
 
     public void reproduire(Ressource ressource) {
         //plantation
-        if (ressource.getTypeRessource().equals(TypeRessource.ble) || ressource.getTypeRessource().equals(TypeRessource.carotte)) {
-            if (stockService.stockDisponible(1, ressource.getTypeRessource())) {
+        if (ressource.getTypeRessource().equals(TypeRessource.ble) || ressource.getTypeRessource().equals(TypeRessource.carotte)) {            
+            if (stockService.stockDisponible(1, ressource.getTypeRessource())==true) {   
                 ressource.setStatutRessource(StatutRessource.occupe);
                 ressource.setDateFinOccupation(dateService.calculDateFuture(6));
+                ressourceService.save(ressource);
             }
-            throw new RuntimeException("Stock insuffisant");
+            
+            else throw new RuntimeException("Stock insuffisant");
         }
 
         //accouplement
@@ -47,8 +49,9 @@ public class ReproductionService {
             if (stockService.stockDisponible(2, TypeRessource.chevre)) {
                 ressource.setStatutRessource(StatutRessource.occupe);
                 ressource.setDateFinOccupation(dateService.calculDateFuture(12));
+                ressourceService.save(ressource);
             }
-            throw new RuntimeException("Stock insuffisant");
+            else throw new RuntimeException("Stock insuffisant");
         }
     }
 
