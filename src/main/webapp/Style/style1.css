@@ -10,25 +10,15 @@ and open the template in the editor.
 
 .titre{
     font-family: fantasy;
+    text-decoration: blink;
+    text-shadow: 3px 5px 10px #000;
     font-size: 100px;
     text-align: center;
     height: 150px;
     color: gold;
     margin-left: 200px;
     margin-right: 200px;
-}
-
-.menu{
-    text-align: center;
-    font-weight: lighter;
-    font-family: cursive;
-    font-size: x-large;
-    color: bisque;
-    background-color: black;
-    border-style: groove;
-    border-radius: 25%;
-    border-color: white;
-    border-width: 5px 0px 5px 0px;
+    margin-top: 630px;
 }
 
 .contenu{
@@ -69,13 +59,15 @@ and open the template in the editor.
     text-align: center;
     font-size: medium;
     color: black;
-    font-family: fantasy;
+    font-family: Verdana;
+    font-variant: all-small-caps;
     position: fixed;
     top: 10px;
     background-color: wheat;
-    opacity: 0.75;
-    border-style: ridge;
-    border-color: wheat;
+    opacity: 0.80;
+    height: 100px;
+    border-style: solid;
+    border-color: whitesmoke;
 }
 
 .inscription{

@@ -7,10 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<div class="connexion">
+<div>
     <form method="post" action="connexion_servlet">
-        <label>Login</label><input type="text" name="login"/>
-        <label>Password</label><input type="password" name="password"/>
+        <label>Login</label><input type="text" name="login"/> <br/>
+        <label>Password</label><input type="password" name="password"/> <br/>
         <input type="submit" value="Connexion">
     </form>
     <a href="inscription.jsp">Inscription</a>

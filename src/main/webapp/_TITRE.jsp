@@ -7,7 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div class="titre"> </div>
+<div class="titre"> <h4>La Ferme en Folie<h4/> </div>
 
 <div class="connexion">
     <c:choose>
