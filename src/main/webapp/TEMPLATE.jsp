@@ -13,9 +13,8 @@
         <title>La Ferme en Folie</title>
         <c:import url="_CSS.jsp"/>
     </head>
-    <body>
+    <body class="bodyFerme">
         <c:import url="_TITRE.jsp"/>
-        <c:import url="_MENU.jsp"/>
         <div class="contenu">
             
         </div>
