@@ -10,25 +10,28 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>La Ferme en Folie</title>
+        <c:import url="_CSS.jsp"/>
     </head>
-    <body>
+    <body class="bodyFerme">
+        <c:import url="_TITRE.jsp"/>
         <%-- //Cadran Date Jeu--%>
         <div class="dateJeu">             
-            <img src="Images/calendar.png" alt=""/> ${dateJeu}
+            <img src="Images/calendar.png" alt=""/> <br/>
+            ${dateJeu}
         </div>
 
         <%-- //Bouton Echanger ressource--%>
-        <a href="echanger_ressource_servlet"><input class="bouton" type="button" value="Echanger mes ressources"></a>
+        <%--   <a href="echanger_ressource_servlet"><input class="bouton" type="button" value="Echanger mes ressources"></a>
 
         <%-- //Cadran Durées de vie--%>
-        <div class="dureeVie">
+        <%--<div class="dureeVie">
             Durées de vie
             <br>
             <table>
                 <tr>
                     <td>
-                        <img src="Images/Farmer_Smurf.png" alt=""/>
+                        <img src="Images/farmer.png" alt=""/>
                     </td>
                     <c:if test="${dureeVieChevre != null}">
                         <td>
@@ -83,7 +86,7 @@
                     <img src="Images/chevre.png" alt=""/>
                 </td>
                 <td>
-                    <table>
+                    <table style="width: 100">
                         <tr>
                             <td>${nbChevresDispo} disponible(s) <a href=""><input class="boutonStock" type="button" value="Reproduction"></a></td>
                         </tr>
@@ -100,10 +103,10 @@
                 <td>
                     ${nbFromagesDispo}
                 </td>
-            </tr>
-        </table>
+            </tr> 
+    </table>
 
 
-
-    </body>
+    <c:import url="_PIED.jsp"/>
+</body>
 </html>

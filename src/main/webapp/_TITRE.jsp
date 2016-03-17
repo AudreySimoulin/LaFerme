@@ -15,9 +15,7 @@
             <c:import url="connexion_inscription.jsp"/> <br/><br/><br/>
         </c:when>
         <c:otherwise>
-            Bonjour ${sessionScope.login} !
-            <br/>
-            <a href="ma_ferme_servlet">Ma Ferme</a>
+            Bienvenue dans votre ferme ${sessionScope.login} !
             <br/>
             <a href="deconnexion_servlet">D&eacute;connexion</a>
         </c:otherwise>

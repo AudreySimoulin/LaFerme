@@ -46,6 +46,8 @@ and open the template in the editor.
 
 .bodyHome{
     background-image: url(../Images/Les-animaux-de-la-ferme.jpg);
+    padding-bottom: 10px;
+    padding-top: 10px;
     background-position: top center;
     background-repeat: no-repeat;
     background-color: limegreen;
@@ -69,18 +71,16 @@ and open the template in the editor.
     color: black;
     font-family: fantasy;
     position: fixed;
-    top: 50px;
-    left: 35%;
+    top: 10px;
     background-color: wheat;
     opacity: 0.75;
-}
-
-table{
-    margin-left: 650px;
-    left: 50%;
+    border-style: ridge;
+    border-color: wheat;
 }
 
 .inscription{
+    margin-left: 650px;
+    left: 50%;
     text-align: center;
     background-color: chocolate;
     opacity: 0.8;
@@ -101,11 +101,32 @@ table{
 }
 
 .stock{
-    text-align: center;
-    top: 50px;
-    right: 10%;
-    background-color: chocolate;
+    text-align: justify;
+    width: 300px;
+    height: 300px;
+    background-color: #00cc33;
     opacity: 0.75;
+    border-style: groove;
+    border-color: greenyellow;
+    margin-left: 1200px;
+}
+
+.dateJeu{
+    background-color:#00cc33;
+    width: 150px;
+    height: 100px;
+    opacity: 0.75;
+    text-align: center;
+    border-style: groove;
+    border-color: greenyellow;
+}
+
+.dureeVie{
+    background-color: red;
+    opacity: 0.75;
+    
+    bottom: 10px;
+    left: 10px;
 }
 
 .bouton1{
