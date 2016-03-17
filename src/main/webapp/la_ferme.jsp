@@ -56,6 +56,7 @@
         </div>
 
         <%-- //Cadran stock ressources--%>
+        
         <table class="stock">
             <tr>
                 <td>

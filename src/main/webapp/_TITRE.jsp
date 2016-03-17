@@ -7,18 +7,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div class="titre"> <h4>La Ferme en Folie<h4/> </div>
 
-<div class="connexion">
+
     <c:choose>
         <c:when test="${sessionScope.login==null}">
+            <div class="connexion">
             <c:import url="connexion_inscription.jsp"/> <br/><br/><br/>
+            </div>
         </c:when>
         <c:otherwise>
+            <div class="deconnexion">
             Bienvenue dans votre ferme ${sessionScope.login} !
             <br/>
             <a href="deconnexion_servlet">D&eacute;connexion</a>
+            </div>
         </c:otherwise>
     </c:choose>
 
-</div>

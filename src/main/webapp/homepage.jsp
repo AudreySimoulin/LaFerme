@@ -17,9 +17,10 @@
         <c:import url="_TITRE.jsp"/>
         <div class="contenu">
             <c:if test="${sessionScope.login!=null}">
-            <a href="la_ferme_servlet"><input type="button" name="jouer" value="jouer" class="boutonHome"/></a>
+            <a href="la_ferme_servlet"><input type="button" name="jouer" value="jouer" class="boutonHome"/></a> 
             </c:if>
         </div>
+        <div class="titre"> <h4>La Ferme en Folie<h4/> </div>
         <c:import url="_PIED.jsp"/>
     </body>
 </html>
