@@ -30,7 +30,7 @@
                         Nourriture disponible
                     </td>                
                 </tr>
-                <c:forEach items="${bouchesAnourrir}" var="oucheAnourrir">
+                <c:forEach items="${bouchesAnourrir}" var="boucheAnourrir">
                     <form action="nourrir_servlet?boucheAnourrir=${boucheAnourrir.id}" method="post">
                         <tr>
                             <td>                                

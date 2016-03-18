@@ -39,9 +39,15 @@ public class AfficherNourrirServlet extends AutowireServlet {
         for(Ressource r : ressourceService.findByTypeRessource(TypeRessource.chevre)){
             bouchesAnourrir.add(r);
         }
+        
+        for(Ressource r : ressourceService.findByTypeRessourceDistinctNotInAndStatutRessource(TypeRessource.carotte, StatutRessource.disponible)){
+            System.out.println("**************"+r.getTypeRessource());
+        }
+        
         req.setAttribute("nourritures", nourritures);
         req.setAttribute("bouchesAnourrir", bouchesAnourrir);
         req.getRequestDispatcher("nourrir.jsp").forward(req, resp);
+        
     }
 
 }
