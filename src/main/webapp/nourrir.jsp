@@ -41,9 +41,16 @@
                             </td>
                             <td>
                                 <select name="nourriture">
-                                    <c:forEach items="${nourritures}" var="nourriture">
-                                        <option value="${nourriture.id}">${nourriture.typeRessource}</option>
+                                    <c:if test="${boucheAnourrir.typeRessource =='fermier'}">
+                                    <c:forEach items="${nourrituresFermier}" var="nourriture">                                        
+                                            <option value="${nourriture.id}">${nourriture.typeRessource}</option>                                                                               
                                     </c:forEach>
+                                    </c:if>
+                                    <c:if test="${boucheAnourrir.typeRessource=='chevre'}">
+                                    <c:forEach items="${nourrituresChevre}" var="nourriture">                                        
+                                            <option value="${nourriture.id}">${nourriture.typeRessource}</option>                                                                               
+                                    </c:forEach>
+                                    </c:if>
                                 </select>
                             </td>
                             <td>

@@ -6,6 +6,7 @@
 package LaFerme.service;
 
 import LaFerme.entity.Ressource;
+import LaFerme.entity.Utilisateur;
 import LaFerme.enumeration.StatutRessource;
 import LaFerme.enumeration.TypeRessource;
 import java.util.List;
@@ -22,8 +23,8 @@ public interface RessourceService extends CrudRepository<Ressource, Long>{
     public void removeByUtilisateurIdAndTypeRessource(Long idUtilisateur, TypeRessource typeRessource);
     public List<Ressource> findByTypeRessource(TypeRessource typeRessource);
     public Long countByTypeRessourceAndStatutRessource(TypeRessource typeRessource, StatutRessource statutRessource);    
-    public List<Ressource> findByTypeRessourceOrderByDateFinCycle(TypeRessource typeRessource);
-    public List<Ressource> findDistinctTypeRessourceByStatutRessource(StatutRessource statutRessource);    
-    public List<Ressource> findByTypeRessourceDistinctNotInAndStatutRessource(TypeRessource typeRessource, StatutRessource statutRessource);
+    public List<Ressource> findByTypeRessourceOrderByDateFinCycle(TypeRessource typeRessource); 
     
+    public List<Ressource> findByTypeRessourceAndUtilisateur(TypeRessource typeRessource,Utilisateur utilisateur);
+    public List<Ressource> findByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource typeRessource, StatutRessource statutRessource, Utilisateur utilisateur);
 }
