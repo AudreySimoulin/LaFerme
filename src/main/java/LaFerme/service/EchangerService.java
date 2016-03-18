@@ -57,7 +57,9 @@ public class EchangerService {
                 ressourceService.save(achat);
             }
             for (int i = 0; i <= nbVendue; i++) {
-                ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), TypeRessourceVendue);
+                Ressource ressource = ressourceService.findByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessourceVendue, StatutRessource.disponible, utilisateur).get(0);
+                utilisateur.getRessources().remove(ressource);
+                ressourceService.delete(ressource);
             }
             throw new RuntimeException("Pas assez de " + TypeRessourceVendue + " en stock");
         }

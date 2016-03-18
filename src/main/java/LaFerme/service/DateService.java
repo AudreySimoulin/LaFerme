@@ -45,30 +45,36 @@ public class DateService {
     }
 
     public boolean dateExpiree(Date date) {
-        return dateJeu.after(date) ;
+        
+        System.out.format("*** Date jour: %s Date en param: %s\n", dateJeu, date);
+        
+        return dateJeu.getTime().after(date) ;
           
     }
 
-    public Date calculDateFuture(int nbMois) {
-        dateJeu.add(Calendar.MONTH, nbMois);
-        Date dateFutur = dateJeu.getTime();          
+    public Date calculDateFuture(int nbMinutes) {
+        Calendar c = new GregorianCalendar();
+        c.setTime(dateJeu.getTime());
+        c.add(Calendar.MINUTE, nbMinutes);
+        Date dateFutur = c.getTime();          
         return dateFutur;
     }    
     
-    @Scheduled(fixedDelay = 60000)
-    public void accelereDateJeu(){
-        dateJeu.add(Calendar.HOUR, 1);
-    }
+//    @Scheduled(fixedDelay = 60000)
+//    public void accelereDateJeu(){
+//        dateJeu.add(Calendar.HOUR, 1);
+//    }
     
-    @Scheduled (fixedDelay = 60000)
+    @Scheduled (fixedDelay = 6000)
     public void actualiserRessource(){
-        for(Utilisateur u : utilisateurService.findAll()){
-            reproductionService.naissance(u);
-            mourirService.mourir(u);
-        }
+        System.out.println("***");
+//        for(Utilisateur u : utilisateurService.findAll()){
+            reproductionService.naissance();
+            mourirService.mourir();
+//        }
     }
     
-    @Scheduled (fixedDelay = (6*30*24*60000))
+    @Scheduled (fixedDelay = 360000)
     public void actualiserFromage(){
         for(Utilisateur u : utilisateurService.findAll()){
             reproductionService.genererFromage(u);
@@ -82,12 +88,12 @@ public class DateService {
         
     }
     
-    public String getDureeVie(TypeRessource typeRessource){
-        Ressource ressource = ressourceService.findByTypeRessourceOrderByDateFinCycle(typeRessource).get(0);
+    public String getDureeVie(TypeRessource typeRessource, Utilisateur utilisateur){
+        Ressource ressource = ressourceService.findByTypeRessourceAndUtilisateurOrderByDateFinCycle(typeRessource, utilisateur).get(0);
         Long dureeVieMs = ressource.getDateFinCycle().getTime()-dateJeu.getTime().getTime();
         Calendar c = new GregorianCalendar();
         c.setTimeInMillis(dureeVieMs);
-        SimpleDateFormat horlogeFormat = new SimpleDateFormat("dd ' j 'hh:mm");
+        SimpleDateFormat horlogeFormat = new SimpleDateFormat("mm:ss");
         String horloge = horlogeFormat.format(c.getTime());        
         return horloge;
     }

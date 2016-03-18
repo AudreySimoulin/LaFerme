@@ -38,7 +38,8 @@ public class NourrirService {
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
-                    ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), nourriture.getTypeRessource());
+                    utilisateur.getRessources().remove(nourriture);
+                    ressourceService.delete(nourriture);
                 }
                 throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
@@ -53,7 +54,8 @@ public class NourrirService {
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
-                    ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), nourriture.getTypeRessource());
+                    utilisateur.getRessources().remove(nourriture);
+                    ressourceService.delete(nourriture);
                 }
                 throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
@@ -63,7 +65,8 @@ public class NourrirService {
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
-                    ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), nourriture.getTypeRessource());
+                    utilisateur.getRessources().remove(nourriture);
+                    ressourceService.delete(nourriture);
                 }
                 throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
@@ -73,7 +76,8 @@ public class NourrirService {
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
-                    ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), nourriture.getTypeRessource());
+                    utilisateur.getRessources().remove(nourriture);
+                    ressourceService.delete(nourriture);
                 }
                 throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
@@ -83,7 +87,8 @@ public class NourrirService {
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
                     //Mise à jour du stock 
-                    ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), nourriture.getTypeRessource());
+                    utilisateur.getRessources().remove(nourriture);
+                    ressourceService.delete(nourriture);
                 }
                 throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }

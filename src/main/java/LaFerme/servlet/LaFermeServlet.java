@@ -5,10 +5,12 @@
  */
 package LaFerme.servlet;
 
+import LaFerme.entity.Utilisateur;
 import LaFerme.enumeration.StatutRessource;
 import LaFerme.enumeration.TypeRessource;
 import LaFerme.service.DateService;
 import LaFerme.service.RessourceService;
+import LaFerme.service.UtilisateurService;
 import LaFerme.spring.AutowireServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,6 +36,9 @@ public class LaFermeServlet extends AutowireServlet {
     private DateService dateService;
     @Autowired
     private RessourceService ressourceService;
+    
+    @Autowired
+    private UtilisateurService utilisateurService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -47,15 +52,17 @@ public class LaFermeServlet extends AutowireServlet {
         req.setAttribute("nbChevresEnceintes", (ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.chevre, StatutRessource.occupe)) / 2);
         req.setAttribute("nbFromagesDispo", ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.chevre, StatutRessource.disponible));
 
+        Utilisateur utilisateur = utilisateurService.findOneByLogin((String) req.getSession().getAttribute("login"));
+        
 //        try {
-            String dureeVieFermier = dateService.getDureeVie(TypeRessource.fermier);
+            String dureeVieFermier = dateService.getDureeVie(TypeRessource.fermier, utilisateur);
             req.setAttribute("dureeVieFermier", dureeVieFermier);
 //        } catch (Exception e) {
 //
 //        }
 
         try {
-            String dureeVieChevre = dateService.getDureeVie(TypeRessource.fermier);
+            String dureeVieChevre = dateService.getDureeVie(TypeRessource.chevre, utilisateur);
             req.setAttribute("dureeVieChevre", dureeVieChevre);
         } catch (Exception e) {
 

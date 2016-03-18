@@ -5,10 +5,12 @@
  */
 package LaFerme.servlet;
 
+import LaFerme.entity.Utilisateur;
 import LaFerme.enumeration.StatutRessource;
 import LaFerme.enumeration.TypeRessource;
 import LaFerme.service.ReproductionService;
 import LaFerme.service.RessourceService;
+import LaFerme.service.UtilisateurService;
 import LaFerme.spring.AutowireServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,14 +28,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 @WebServlet(name = "ReproductionServlet", urlPatterns = {"/reproduction_servlet"})
 public class ReproductionServlet extends AutowireServlet {
     @Autowired
-    ReproductionService reproductionService;
+    private ReproductionService reproductionService;
     @Autowired
-    RessourceService ressourceService;
+    private RessourceService ressourceService;
+    
+    @Autowired
+    private UtilisateurService utilisateurService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         TypeRessource typeRessource = TypeRessource.valueOf(TypeRessource.class, req.getParameter("typeRessource"));
-        reproductionService.reproduire(ressourceService.findByTypeRessourceAndStatutRessource(typeRessource, StatutRessource.disponible).get(0));
+        Utilisateur utilisateur = utilisateurService.findOneByLogin((String) req.getSession().getAttribute("login"));
+        reproductionService.reproduire(ressourceService.findByTypeRessourceAndStatutRessourceAndUtilisateur(typeRessource, StatutRessource.disponible, utilisateur).get(0));
         resp.sendRedirect("la_ferme_servlet");
         
     }

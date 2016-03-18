@@ -17,24 +17,24 @@ import org.springframework.stereotype.Service;
  *
  * @author admin
  */
-
 @Service
 public class MourirService {
-    
+
     @Autowired
     private RessourceService ressourceService;
-    
+
     @Autowired
     private DateService dateService;
 
-    public void mourir(Utilisateur utilisateur){
-        for(Ressource ressource : ressourceService.findAll()){
-            if(dateService.dateExpiree(ressource.getDateFinCycle()) && (ressource.getTypeRessource().equals(TypeRessource.chevre) || ressource.getTypeRessource().equals(TypeRessource.fermier))){
-                ressourceService.removeByUtilisateurIdAndTypeRessource(utilisateur.getId(), ressource.getTypeRessource());
+    public void mourir() {
+        for (Ressource ressource : ressourceService.findAll()) {
+            Utilisateur utilisateur = ressource.getUtilisateur();
+            if (dateService.dateExpiree(ressource.getDateFinCycle()) && (ressource.getTypeRessource().equals(TypeRessource.chevre) || ressource.getTypeRessource().equals(TypeRessource.fermier))) {
+                utilisateur.getRessources().remove(ressource);
+                ressourceService.delete(ressource);
             }
         }
-        
-        
+
     }
-    
+
 }
