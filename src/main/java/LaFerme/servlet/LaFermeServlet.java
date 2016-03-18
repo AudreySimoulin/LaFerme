@@ -44,16 +44,16 @@ public class LaFermeServlet extends AutowireServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("dateJeu", dateService.getHorloge());
 
-        req.setAttribute("nbCarottesDispo", ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.carotte, StatutRessource.disponible));
-        req.setAttribute("nbCarottesPantees", ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.carotte, StatutRessource.occupe));
-        req.setAttribute("nbBlesDispo", ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.ble, StatutRessource.disponible));
-        req.setAttribute("nbBlesPantees", ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.ble, StatutRessource.occupe));
-        req.setAttribute("nbChevresDispo", ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.chevre, StatutRessource.disponible));
-        req.setAttribute("nbChevresEnceintes", (ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.chevre, StatutRessource.occupe)) / 2);
-        req.setAttribute("nbFromagesDispo", ressourceService.countByTypeRessourceAndStatutRessource(TypeRessource.chevre, StatutRessource.disponible));
-
         Utilisateur utilisateur = utilisateurService.findOneByLogin((String) req.getSession().getAttribute("login"));
         
+        req.setAttribute("nbCarottesDispo", ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.carotte, StatutRessource.disponible, utilisateur));
+        req.setAttribute("nbCarottesPantees", ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.carotte, StatutRessource.occupe, utilisateur));
+        req.setAttribute("nbBlesDispo", ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.ble, StatutRessource.disponible, utilisateur));
+        req.setAttribute("nbBlesPantees", ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.ble, StatutRessource.occupe, utilisateur));
+        req.setAttribute("nbChevresDispo", ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.chevre, StatutRessource.disponible, utilisateur));
+        req.setAttribute("nbChevresEnceintes", (ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.chevre, StatutRessource.occupe, utilisateur)) / 2);
+        req.setAttribute("nbFromagesDispo", ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.chevre, StatutRessource.disponible, utilisateur));
+
 //        try {
             String dureeVieFermier = dateService.getDureeVie(TypeRessource.fermier, utilisateur);
             req.setAttribute("dureeVieFermier", dureeVieFermier);

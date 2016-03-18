@@ -23,8 +23,8 @@ public interface RessourceService extends CrudRepository<Ressource, Long>{
     
     public List<Ressource> findByTypeRessourceAndStatutRessource(TypeRessource typeRessource, StatutRessource statutRessource);
     public List<Ressource> findByTypeRessource(TypeRessource typeRessource);
-    public Long countByTypeRessourceAndStatutRessource(TypeRessource typeRessource, StatutRessource statutRessource);    
     
+    public Long countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource typeRessource, StatutRessource statutRessource, Utilisateur utilisateur);    
     public List<Ressource> findByTypeRessourceAndUtilisateurOrderByDateFinCycle(TypeRessource typeRessource, Utilisateur utilisateur); 
     public List<Ressource> findByTypeRessourceAndUtilisateur(TypeRessource typeRessource,Utilisateur utilisateur);
     public List<Ressource> findByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource typeRessource, StatutRessource statutRessource, Utilisateur utilisateur);

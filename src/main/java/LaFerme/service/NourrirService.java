@@ -37,13 +37,14 @@ public class NourrirService {
                     //Mise à jour de la dateCycle
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
+                    ressourceService.save(boucheAnourrir);
                     //Mise à jour du stock 
                     utilisateur.getRessources().remove(nourriture);
                     ressourceService.delete(nourriture);
                 }
-                throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
+                else throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
-            throw new RuntimeException(boucheAnourrir.getTypeRessource() + " ne mange pas ce type de nourriture");
+            else throw new RuntimeException(boucheAnourrir.getTypeRessource() + " ne mange pas ce type de nourriture");
         }
         //Nourrrir fermier
         if (boucheAnourrir.getTypeRessource().equals(TypeRessource.fermier)) {
@@ -53,44 +54,48 @@ public class NourrirService {
                     //Mise à jour de la dateCycle
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
+                    ressourceService.save(boucheAnourrir);
                     //Mise à jour du stock 
                     utilisateur.getRessources().remove(nourriture);
                     ressourceService.delete(nourriture);
                 }
-                throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
+                else throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
             if (nourriture.getTypeRessource().equals(TypeRessource.carotte)) {
                 if (stockService.stockDisponible(2, nourriture.getTypeRessource()) == true) {
                     //Mise à jour de la dateCycle
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
+                    ressourceService.save(boucheAnourrir);
                     //Mise à jour du stock 
                     utilisateur.getRessources().remove(nourriture);
                     ressourceService.delete(nourriture);
                 }
-                throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
+                else throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
             if (nourriture.getTypeRessource().equals(TypeRessource.fromage)) {
                 if (stockService.stockDisponible(2, nourriture.getTypeRessource()) == true) {
                     //Mise à jour de la dateCycle
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
+                    ressourceService.save(boucheAnourrir);
                     //Mise à jour du stock 
                     utilisateur.getRessources().remove(nourriture);
                     ressourceService.delete(nourriture);
                 }
-                throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
+                else throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
             if (nourriture.getTypeRessource().equals(TypeRessource.chevre)) {
                 if (stockService.stockDisponible(1, nourriture.getTypeRessource()) == true) {
                     //Mise à jour de la dateCycle
                     Date dateCycle = dateService.calculDateFuture(3);
                     boucheAnourrir.setDateFinCycle(dateCycle);
+                    ressourceService.save(boucheAnourrir);
                     //Mise à jour du stock 
                     utilisateur.getRessources().remove(nourriture);
                     ressourceService.delete(nourriture);
                 }
-                throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
+                else throw new RuntimeException("Pas assez de " + nourriture.getTypeRessource() + " en stock");
             }
 
         }
