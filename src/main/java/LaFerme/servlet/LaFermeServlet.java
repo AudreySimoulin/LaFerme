@@ -36,7 +36,7 @@ public class LaFermeServlet extends AutowireServlet {
     private DateService dateService;
     @Autowired
     private RessourceService ressourceService;
-    
+
     @Autowired
     private UtilisateurService utilisateurService;
 
@@ -45,7 +45,7 @@ public class LaFermeServlet extends AutowireServlet {
         req.setAttribute("dateJeu", dateService.getHorloge());
 
         Utilisateur utilisateur = utilisateurService.findOneByLogin((String) req.getSession().getAttribute("login"));
-        
+
         req.setAttribute("nbCarottesDispo", ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.carotte, StatutRessource.disponible, utilisateur));
         req.setAttribute("nbCarottesPantees", ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.carotte, StatutRessource.occupe, utilisateur));
         req.setAttribute("nbBlesDispo", ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.ble, StatutRessource.disponible, utilisateur));
@@ -54,24 +54,23 @@ public class LaFermeServlet extends AutowireServlet {
         req.setAttribute("nbChevresEnceintes", (ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.chevre, StatutRessource.occupe, utilisateur)) / 2);
         req.setAttribute("nbFromagesDispo", ressourceService.countByTypeRessourceAndStatutRessourceAndUtilisateur(TypeRessource.chevre, StatutRessource.disponible, utilisateur));
 
-//        try {
+        try {
             String dureeVieFermier = dateService.getDureeVie(TypeRessource.fermier, utilisateur);
             req.setAttribute("dureeVieFermier", dureeVieFermier);
-//        } catch (Exception e) {
-//
-//        }
-
-        try {
-            String dureeVieChevre = dateService.getDureeVie(TypeRessource.chevre, utilisateur);
-            req.setAttribute("dureeVieChevre", dureeVieChevre);
         } catch (Exception e) {
 
-        }    
+        }
 
-    req.getRequestDispatcher ("la_ferme.jsp").forward(req, resp);
-        
+            try {
+                String dureeVieChevre = dateService.getDureeVie(TypeRessource.chevre, utilisateur);
+                req.setAttribute("dureeVieChevre", dureeVieChevre);
+            } catch (Exception ex) {
+
+            }
+
+            req.getRequestDispatcher("la_ferme.jsp").forward(req, resp);
+
+        }
+
     }
-    
-    
 
-}

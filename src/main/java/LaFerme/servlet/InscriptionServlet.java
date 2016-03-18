@@ -53,8 +53,11 @@ public class InscriptionServlet extends AutowireServlet {
         for (int i = 0; i < 3; i++) {
             Ressource carotte = new Ressource(TypeRessource.carotte, StatutRessource.disponible, utilisateur);
             Ressource ble = new Ressource(TypeRessource.ble, StatutRessource.disponible, utilisateur);
+            Ressource chevre = new Ressource(TypeRessource.chevre, StatutRessource.disponible, dateService.calculDateFuture(3), utilisateur);
             utilisateur.getRessources().add(ble);
             utilisateur.getRessources().add(carotte);
+            utilisateur.getRessources().add(chevre);
+            ressourceService.save(chevre);
             ressourceService.save(carotte);
             ressourceService.save(ble);
         }

@@ -16,7 +16,7 @@
             var task = function () {
                 document.location.reload();
             }
-            window.setTimeout(task, 60000);
+            window.setTimeout(task, 10000);
         </script>
     </head>
     <body class="bodyFerme">
@@ -28,93 +28,104 @@
         </div>
 
         <%-- //Bouton Echanger ressource--%>
-        <a href="echanger_ressource_servlet"><input class="bouton" type="button" value="Echanger mes ressources"></a>
+        <a href="echanger_servlet"><input class="bouton" type="button" value="Echanger mes ressources"></a>
 
         <div class="contenu">
-        <%-- //Cadran Durées de vie--%>
-        <div class="dureeVie">
-            Durées de vie
-            <br>
-            <table>
-                <tr>
-                    <td>
-                        <img src="Images/farmer.png" alt=""/>
-                    </td>
-                    <c:if test="${dureeVieChevre != null}">
+            <%-- //Cadran Durées de vie--%>
+            <div class="dureeVie">
+                Durées de vie
+                <br>
+                <table>
+                    <tr>
+                        <td>
+                            <c:choose>
+                                <c:when test="${dureeVieFermier != null}">
+                                    <img src="Images/farmer.png" alt=""/>
+                                </c:when>
+                                <c:otherwise>
+                                    <input class="bouton" type="button" value="Créer un fermier">
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <c:if test="${dureeVieChevre != null}">
+                            <td>
+                                <img src="Images/chevre.png" alt=""/>
+                            </td>
+                        </c:if>
+                    </tr>
+                    <tr>
+                        <c:if test="${dureeVieFermier != null}">
+                            <td>${dureeVieFermier}</td>
+                        </c:if>
+                        <c:if test="${dureeVieChevre != null}">
+                            <td>${dureeVieChevre}</td>
+                        </c:if>
+                    </tr>
+                </table>
+                <c:if test="${dureeVieFermier != null}">
+                <a href="afficher_nourrir_servlet"><input class="bouton" type="button" value="Nourrir mes ressources"></a>
+                </c:if>
+            </div>
+
+            <%-- //Cadran stock ressources--%>
+
+            <div class="stock">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="Images/Carotte.png" alt=""/>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>${nbCarottesDispo} disponible(s) <a href="reproduction_servlet?typeRessource=carotte"><input class="boutonStock" type="button" value="Planter"></a></td>
+                                </tr>
+                                <tr>
+                                    <td>${nbCarottesPantees} plant&eacute;e(s)</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="Images/ble.png" alt=""/>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>${nbBlesDispo} disponible(s) <a href="reproduction_servlet?typeRessource=ble"><input class="boutonStock" type="button" value="Planter"></a></td>
+                                </tr>
+                                <tr>
+                                    <td>${nbBlesPantees} plant&eacute;e(s)</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>
                             <img src="Images/chevre.png" alt=""/>
                         </td>
-                    </c:if>
-                </tr>
-                <tr>
-                    <td>${dureeVieFermier}</td>
-                    <c:if test="${dureeVieChevre != null}">
-                        <td>${dureeVieChevre}</td>
-                    </c:if>
-                </tr>
-            </table>
-            <a href="afficher_nourrir_servlet"><input class="bouton" type="button" value="Nourrir mes ressources"></a>
-        </div>
-
-        <%-- //Cadran stock ressources--%>
-
-        <div class="stock">
-            <table>
-                <tr>
-                    <td>
-                        <img src="Images/Carotte.png" alt=""/>
-                    </td>
-                    <td>
-                        <table>
-                            <tr>
-                                <td>${nbCarottesDispo} disponible(s) <a href="reproduction_servlet?typeRessource=carotte"><input class="boutonStock" type="button" value="Planter"></a></td>
-                            </tr>
-                            <tr>
-                                <td>${nbCarottesPantees} plant&eacute;e(s)</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="Images/ble.png" alt=""/>
-                    </td>
-                    <td>
-                        <table>
-                            <tr>
-                                <td>${nbBlesDispo} disponible(s) <a href="reproduction_servlet?typeRessource=ble"><input class="boutonStock" type="button" value="Planter"></a></td>
-                            </tr>
-                            <tr>
-                                <td>${nbBlesPantees} plant&eacute;e(s)</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="Images/chevre.png" alt=""/>
-                    </td>
-                    <td>
-                        <table>
-                            <tr>
-                                <td>${nbChevresDispo} disponible(s) <a href="reproduction_servlet?typeRessource=chevre"><input class="boutonStock" type="button" value="Reproduction"></a></td>
-                            </tr>
-                            <tr>
-                                <td>${nbChevresEnceintes} enceinte(s)</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="Images/fromage2.png" alt=""/>
-                    </td>
-                    <td>
-                        ${nbFromagesDispo}
-                    </td>
-                </tr> 
-            </table>
-        </div>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>${nbChevresDispo} disponible(s) <a href="reproduction_servlet?typeRessource=chevre"><input class="boutonStock" type="button" value="Reproduction"></a></td>
+                                </tr>
+                                <tr>
+                                    <td>${nbChevresEnceintes} enceinte(s)</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="Images/fromage2.png" alt=""/>
+                        </td>
+                        <td>
+                            ${nbFromagesDispo}
+                        </td>
+                    </tr> 
+                </table>
+            </div>
         </div>
 
         <c:import url="_PIED.jsp"/>
