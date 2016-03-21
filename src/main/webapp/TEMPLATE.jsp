@@ -2,6 +2,7 @@
     Document   : homepage
     Created on : 15 mars 2016, 13:58:26
     Author     : admin
+coucou
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
@@ -9,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <title>La Ferme en Folie</title>
         <c:import url="_CSS.jsp"/>
     </head>
