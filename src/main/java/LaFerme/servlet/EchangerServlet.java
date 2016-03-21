@@ -58,10 +58,10 @@ public class EchangerServlet extends AutowireServlet {
           ressourcesAvendre.add(carottes.get(0));
         }
         if(!bles.isEmpty()){
-          ressourcesAvendre.add(carottes.get(0));
+          ressourcesAvendre.add(bles.get(0));
         }
         if(!chevres.isEmpty()){
-          ressourcesAvendre.add(carottes.get(0));
+          ressourcesAvendre.add(chevres.get(0));
         }
         
         req.setAttribute("ressourcesAvendre", ressourcesAvendre);
@@ -76,7 +76,7 @@ public class EchangerServlet extends AutowireServlet {
         typeRessourcesAacheter.add(carotte);
         typeRessourcesAacheter.add(chevre);
         
-        req.setAttribute("ressourcesAacheter", typeRessourcesAacheter);
+        req.setAttribute("typeRessourcesAacheter", typeRessourcesAacheter);
         
         req.getRequestDispatcher("echanger.jsp").forward(req, resp);
 

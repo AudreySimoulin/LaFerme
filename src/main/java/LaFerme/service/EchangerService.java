@@ -61,8 +61,8 @@ public class EchangerService {
                 utilisateur.getRessources().remove(ressource);
                 ressourceService.delete(ressource);
             }
-            throw new RuntimeException("Pas assez de " + TypeRessourceVendue + " en stock");
         }
+        else throw new RuntimeException("Pas assez de " + TypeRessourceVendue + " en stock");
     }
 
 }
